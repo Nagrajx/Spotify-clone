@@ -9,7 +9,7 @@ async function registerUser(req, res) {
 
     const { username, email, password, role = 'user' } = req.body;
 
-    if (!username || !email || !password || !role) {
+    if (!username || !email || !password) {
         return res.status(400).json({
             message: "All Fileds Are Required"
         })
@@ -42,7 +42,7 @@ async function registerUser(req, res) {
 
     res.cookie("token", token)
 
-    res.status(201).json({
+    res.status(200).json({
         message: "User Created",
         user
     })
